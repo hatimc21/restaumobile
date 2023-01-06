@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { Dimensions } from 'react-native';
+import image from '../const/image';
 const { height, width } = Dimensions.get("screen");
 const LATITUDE_DELTA = 0.02;
 const LONGITUDE_DELTA = LATITUDE_DELTA * (width / height);
@@ -168,13 +169,13 @@ const Details = ({ route }) => {
         })();
         console.log(restaurantj)
     }, []);
-    const renderItem = ({ item }) => {
-        return (
-            <View style={styles.imageContainer}>
-                <Image source={{ uri: item.url }} style={styles.image} />
-            </View>
-        );
-    };
+    // const renderItem = ({ item }) => {
+    //     return (
+    //         <View style={styles.imageContainer}>
+    //             <Image source={image[item.id].img} style={styles.image} />
+    //         </View>
+    //     );
+    // };
 
     return (
         <View style={styles.container}>
@@ -206,12 +207,7 @@ const Details = ({ route }) => {
             ) : (
                 <Text>Loading...</Text>
             )}
-            {/* <FlatList
-                data={restaurant.photos}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id.toString()}
-                horizontal
-            />  */}
+            <Image source={image[restaurant.id-1].img} style={styles.image} />
         </View>
     );
 };
