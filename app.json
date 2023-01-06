@@ -1,5 +1,6 @@
 {
   "expo": {
+    "jsEngine": "hermes",
     "name": "fur",
     "slug": "fur",
     "version": "1.0.0",
